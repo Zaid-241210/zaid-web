@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hakkımda</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" as="image" href="images/background-index.jpg"> <!-- arka plan fotoğrafını önce getir -->
@@ -12,8 +12,15 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <header>
+        
+     <div class="container py-5 text-center">
+         <h1 class="display-4 hosgeldiniz">Hoşgeldiniz</h1>
+         <img src="images/football.png" width="150" alt="Futbol" class="mb-4 donen-foto">
+         <h3 class="merhaba">Merhaba, ben Zaid!</h3>
+     </div>
+     
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg border-secondary">
         <div class="container">
             <a class="navbar-brand fw-bold text-light" href="index.html">
@@ -67,9 +74,39 @@
     
     <!-- Ana İçerik -->
     <main class="container py-5 text-center">
-        <h1 class="display-4 hosgeldiniz">Hoşgeldiniz</h1>
-        <img src="images/football.png" width="150" alt="Futbol" class="mb-4">
-        <h3 class="merhaba">Merhaba, ben Zaid!</h3>
+        <div class="row g-4">
+            <div class="col-md-6">
+            <div class="p-3 border rounded h-100">
+                <h4 style="color: white;" class="text-start">Eğitim</h4> <br>
+                <p style="color: white;" class="text-start">Sakarya Üniversitesi Bilgisayar Mühendisliği bölümünde lisans eğitimime devam ediyorum.</p>
+                <img src="images/sakaryauni.jpg" class="img-fluid my-2 fixed-size" alt="Sakarya Üniversitesi">
+            </div>
+            </div>
+
+            <div class="col-md-6">
+            <div class="p-3 border rounded h-100">
+                <h4 style="color: white;" class="text-start">Hobim</h4> <br>
+                <p style="color: white;" class="text-start">Futbola büyük bir ilgi duyuyorum; hem sahada oynamaktan hem de maçları izlemekten keyif alıyorum.</p>
+                <img src="images/football-photo.jpg" class="img-fluid my-2 fixed-size" alt="Wembley Stadium">
+            </div>
+            </div>
+
+            <div class="col-md-6">
+            <div class="p-3 border rounded h-100">
+                <h4 style="color: white;" class="text-start">İlgim</h4> <br>
+                <p style="color: white;" class="text-start">Anime izlemekten hoşlanıyorum, ama genelde arada bir tercih ediyorum.</p>
+                <img src="images/attack.jpg" class="img-fluid my-2 fixed-size" alt="Attack on Titan">
+            </div>
+            </div>
+
+            <div class="col-md-6">
+            <div class="p-3 border rounded h-100">
+                <h4 style="color: white;" class="text-start">YÖS</h4> <br>
+                <p style="color: white;" class="text-start">YÖS sınavında 417 puan alarak başarılı bir sonuç elde ettim.</p>
+                <img src="images/yos.jpg" class="img-fluid my-2 fixed-size" alt="YÖS Sınavı">
+            </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
