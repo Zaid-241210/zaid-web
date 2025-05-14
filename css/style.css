@@ -31,3 +31,22 @@ img.icon2 {
 .nav-link:hover img {
   filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(586%) hue-rotate(194deg) brightness(97%) contrast(96%);
 }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Sayfa açıldığında aşağıda başlasın */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Yavaşça yukarı hareket etsin */
+    }
+}
+.hosgeldiniz {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #99ffff;
+    animation: fadeInUp 1.5s ease-out; /* 1.5 saniyede açılma animasyonu */
+}
+.merhaba{
+    color: #99ffff;
+}
