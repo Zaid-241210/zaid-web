@@ -1,0 +1,25 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.855);
+    border-bottom: 1px solid #6c757d; 
+    opacity: 0.9;
+}
+img.icon {
+  filter: invert(1);
+  vertical-align: text-bottom;
+}
+img.icon2 {
+  filter: grayscale(1) contrast(1.2);
+  vertical-align: text-bottom;
+}
+.navbar-brand:hover {
+  color: rgba(255, 0, 0, 0.773) !important;
+}
+.navbar-brand:hover i {
+  color: rgba(255, 0, 0, 0.773) !important;
+}
+.nav-link:hover {
+  color: #0d6efd !important;
+}
+.nav-link:hover img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(586%) hue-rotate(194deg) brightness(97%) contrast(96%);
+}
