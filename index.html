@@ -6,7 +6,9 @@
     <title>Hakkımda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" as="image" href="images/background-index.jpg"> <!-- arka plan fotoğrafını önce getir -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--home-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--github-->
 </head>
 <body>
 
@@ -41,8 +43,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-center text-light py-1 border-top border-secondary">
-        <p>&copy; 2025 zaid</p>
+    <footer class="bg-transparent text-black py-3 border-top border-black d-flex justify-content-between align-items-center px-3">
+    <p class="m-0">&copy; 2025 zaid</p>
+    <a href="https://github.com/zaid-241210" target="_blank" class="text-black">
+        <i class="fab fa-github fa-2x"></i>
+    </a>
     </footer>
 
     <script src="js/script.js"></script>
