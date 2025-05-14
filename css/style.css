@@ -47,6 +47,10 @@ img.icon2 {
     color: #99ffff;
     animation: fadeInUp 1.5s ease-out; /* 1.5 saniyede açılma animasyonu */
 }
+img.ball-icon {
+  background-color: #99FFFF;
+  vertical-align: text-bottom;
+}
 .merhaba{
     color: #99ffff;
 }
