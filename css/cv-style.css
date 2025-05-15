@@ -1,6 +1,5 @@
 body{
-    background-color: #cde0ea;
-    background-image: url('../images/background-index.jpg');
+    background-color: #000916;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -30,4 +29,46 @@ img.icon2 {
 }
 .nav-link:hover img {
   filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(586%) hue-rotate(194deg) brightness(97%) contrast(96%);
+}
+.satir {
+  display: flex;
+  align-items: center; /* Dikeyde ortalama */
+  gap: 12px; /* Öğeler arası boşluk */
+  margin-top: 50px;
+}
+.ad{  
+  font-weight: 700;
+  font-size: 48px;
+}
+.soyad{
+  font-weight: 400;
+  font-size: 48px;
+}
+.email{
+  font-weight: 200;
+  font-size: 15px;
+  color: #99ffff;
+}
+.email-cevap{
+  font-weight: 400;
+  font-size: 15px;
+  color: white;
+}
+.egitim{
+  font-size: 25px;
+  color: #21059f;
+}
+.yazi{
+  font-weight: 400;
+  font-size: 15px;
+  color: white;
+}
+.bolum-baslik {
+  color: #00ffff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.container-pt{
+  height: 100vh;
 }
