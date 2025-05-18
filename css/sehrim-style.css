@@ -77,3 +77,11 @@ img.icon2 {
 .box p {
   padding: 10px;
 }
+.beyaz-yazi {
+  color: #D3D3D3;
+}
+.beyaz-baslik {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+}
