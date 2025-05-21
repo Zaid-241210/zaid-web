@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--home-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--github-->
+</head>
+<body>
+
+      <header>
+        <nav class="navbar navbar-expand-lg border-secondary">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-light" href="index.html">
+                    <i class="fa fa-home me-2"></i> Home
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="cv.html">
+                                <img src="images/education.png" class="icon" width="20" alt="CV"> CV &nbsp; &nbsp;
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="sehir.html">
+                                <img src="images/city.png" class="icon2" width="20" alt="Şehrim"> Şehrim &nbsp; &nbsp;
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="takimim.html">
+                                <img src="images/barcelona.png" class="icon2" width="20" alt="Takımım"> Takımım &nbsp; &nbsp;
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="laliga.html">
+                            <img src="images/laliga.png" class="icon2" width="20" alt="İlgili Alanlarım"> LaLiga &nbsp; &nbsp;
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="iletisim.html">
+                                <img src="images/contact.png" class="icon" width="20" alt="İletişim"> İletişim &nbsp; &nbsp;
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="login.html">
+                                <img src="images/login.png" class="icon" width="20" alt="Login"> Login &nbsp; &nbsp;
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+        
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4 col-sm-10">
+                <form action="login.php" method="POST" id="loginForm" class="p-4 border rounded text-white">
+                    <h2 class="mb-4 text-center" style="color: #99ffff;">Giriş Yap</h2>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Kullanıcı Adı (SAÜ maili)</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="b2412100001@sakarya.edu.tr">
+                        <div id="emailError" class="form-text text-danger"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Şifre</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="b2412100001">
+                        <div id="passwordError" class="form-text text-danger"></div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn custom-btn">Giriş Yap</button>
+                    </div>
+                </form>
+            </div>  
+        </div>
+    </main>
+
+  <footer class="bg-transparent text-black py-3 border-top border-white d-flex justify-content-between align-items-center px-3">
+    <p class="m-0 text-white">&copy; 2025 zaid</p>
+    <a href="https://github.com/zaid-241210" target="_blank" class="text-white">
+        <i class="fab fa-github fa-2x"></i>
+    </a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/login.js"></script>
+
+</body>
