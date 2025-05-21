@@ -1,9 +1,5 @@
 body{
     background-color: #000916;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
 }
 .navbar {
     background-color: rgba(0, 0, 0, 0.855);
