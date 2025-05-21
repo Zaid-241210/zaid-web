@@ -1,5 +1,5 @@
 body{
-    background-color: #310202;
+    background-color: #000916;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -35,8 +35,8 @@ img.icon2 {
 .beyaz-yazi {
   color: #D3D3D3;
 }
-.beyaz-baslik {
-  color: white;
+.baslik {
+  color: #99ffff;
   font-size: 36px;
   font-weight: bold;
 }
