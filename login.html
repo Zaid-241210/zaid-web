@@ -66,18 +66,18 @@
     <main class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-5 col-lg-4 col-sm-10">
-                <form action="login.php" method="POST" id="loginForm" class="p-4 border rounded text-white">
+                <form action="login.php" method="POST" id="loginForm" class="p-4 border rounded text-white" novalidate>
                     <h2 class="mb-4 text-center" style="color: #99ffff;">Giriş Yap</h2>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Kullanıcı Adı (SAÜ maili)</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="b2412100001@sakarya.edu.tr">
+                        <input type="email" class="form-control" id="email" name="email">
                         <div id="emailError" class="form-text text-danger"></div>
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Şifre</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="b2412100001">
+                        <input type="password" class="form-control" id="password" name="password">
                         <div id="passwordError" class="form-text text-danger"></div>
                     </div>
 
