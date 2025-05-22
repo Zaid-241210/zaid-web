@@ -8,7 +8,7 @@ fetch('https://api.football-data.org/v4/competitions/PD/standings', {
 .then(data => {
   const standings = data.standings[0].table;
   let html = `
-    <h2 class="text-white mb-4">LaLiga 2024/25 Sıralama</h2>
+    <h2 class="text-white mb-4">LaLiga Bu Sezonun Sıralaması</h2>
     <table class="table table-dark table-striped">
       <thead>
         <tr><th>#</th><th>Takım</th><th>O</th><th>G</th><th>B</th><th>M</th><th>Av</th><th>P</th></tr>
@@ -34,7 +34,6 @@ fetch('https://api.football-data.org/v4/competitions/PD/standings', {
   document.querySelector('main').innerHTML += `<p class="text-danger">Sıralama verileri yüklenemedi.</p>`;
 });
 
-
 // 2. LaLiga Maçları
 fetch('https://api.football-data.org/v4/competitions/PD/matches?season=2024', {
   headers: { 'X-Auth-Token': API_KEY }
@@ -43,7 +42,7 @@ fetch('https://api.football-data.org/v4/competitions/PD/matches?season=2024', {
 .then(data => {
   const matches = data.matches;
   let html = `
-    <h2 class="text-white mt-5 mb-4">LaLiga 2024/25 Maçları</h2>
+    <h2 class="text-white mt-5 mb-4">LaLiga Bu Sezonun Maçları</h2>
     <table class="table table-dark table-hover">
       <thead>
         <tr>
