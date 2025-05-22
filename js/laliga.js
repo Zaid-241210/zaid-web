@@ -1,14 +1,15 @@
 const API_KEY = '5a27cfebefa747fc9a725a9ed25b0150'; // senin keyin
+const currentYear = new Date().getFullYear();
 
 // 1. LaLiga Sıralama
-fetch('https://api.football-data.org/v4/competitions/PD/standings', {
+fetch(`https://api.football-data.org/v4/competitions/PD/standings?season=${currentYear}`, {
   headers: { 'X-Auth-Token': API_KEY }
 })
 .then(res => res.json())
 .then(data => {
   const standings = data.standings[0].table;
   let html = `
-    <h2 class="text-white mb-4">LaLiga 2024/25 Sıralama</h2>
+    <h2 class="text-white mb-4">LaLiga ${currentYear}/${currentYear + 1} Sıralama</h2>
     <table class="table table-dark table-striped">
       <thead>
         <tr><th>#</th><th>Takım</th><th>O</th><th>G</th><th>B</th><th>M</th><th>Av</th><th>P</th></tr>
@@ -34,16 +35,15 @@ fetch('https://api.football-data.org/v4/competitions/PD/standings', {
   document.querySelector('main').innerHTML += `<p class="text-danger">Sıralama verileri yüklenemedi.</p>`;
 });
 
-
 // 2. LaLiga Maçları
-fetch('https://api.football-data.org/v4/competitions/PD/matches?season=2024', {
+fetch(`https://api.football-data.org/v4/competitions/PD/matches?season=${currentYear}`, {
   headers: { 'X-Auth-Token': API_KEY }
 })
 .then(res => res.json())
 .then(data => {
   const matches = data.matches;
   let html = `
-    <h2 class="text-white mt-5 mb-4">LaLiga 2024/25 Maçları</h2>
+    <h2 class="text-white mt-5 mb-4">LaLiga ${currentYear}/${currentYear + 1} Maçları</h2>
     <table class="table table-dark table-hover">
       <thead>
         <tr>
