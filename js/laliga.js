@@ -1,69 +1,116 @@
-const API_KEY = '5a27cfebefa747fc9a725a9ed25b0150'; // senin keyin
+const API_KEY = '5a27cfebefa747fc9a725a9ed25b0150';
+const currentYear = new Date().getFullYear();
+const main = document.querySelector("main");
 
-// 1. LaLiga Sıralama
-fetch('https://api.football-data.org/v4/competitions/PD/standings', {
+// LALIGA STANDINGS (GÜNCEL SEZON)
+fetch(`https://api.football-data.org/v4/competitions/PD/standings?season=${currentYear}`, {
   headers: { 'X-Auth-Token': API_KEY }
 })
 .then(res => res.json())
 .then(data => {
   const standings = data.standings[0].table;
   let html = `
-    <h2 class="text-white mb-4">LaLiga 2024/25 Sıralama</h2>
+    <h2 class="text-white mb-4">LaLiga ${currentYear}/${currentYear + 1} Sıralama</h2>
     <table class="table table-dark table-striped">
       <thead>
         <tr><th>#</th><th>Takım</th><th>O</th><th>G</th><th>B</th><th>M</th><th>Av</th><th>P</th></tr>
       </thead><tbody>
   `;
   standings.forEach(team => {
-    html += `<tr>
-      <td>${team.position}</td>
-      <td>${team.team.name}</td>
-      <td>${team.playedGames}</td>
-      <td>${team.won}</td>
-      <td>${team.draw}</td>
-      <td>${team.lost}</td>
-      <td>${team.goalDifference}</td>
-      <td>${team.points}</td>
-    </tr>`;
+    html += `
+      <tr>
+        <td>${team.position}</td>
+        <td>${team.team.name}</td>
+        <td>${team.playedGames}</td>
+        <td>${team.won}</td>
+        <td>${team.draw}</td>
+        <td>${team.lost}</td>
+        <td>${team.goalDifference}</td>
+        <td>${team.points}</td>
+      </tr>
+    `;
   });
   html += '</tbody></table>';
-  document.querySelector('main').innerHTML += html;
+  main.innerHTML += html;
 })
 .catch(err => {
-  console.error("SIRALAMA API HATASI:", err);
-  document.querySelector('main').innerHTML += `<p class="text-danger">Sıralama verileri yüklenemedi.</p>`;
+  console.error("Sıralama API HATASI:", err);
+  main.innerHTML += `<p class="text-danger">Sıralama verileri yüklenemedi.</p>`;
 });
 
 
-// 2. LaLiga Maçları
-fetch('https://api.football-data.org/v4/competitions/PD/matches?season=2024', {
+// LALIGA MATCHES (GÜNCEL + GEÇMİŞ KONTROLLÜ)
+fetch(`https://api.football-data.org/v4/competitions/PD/matches?season=${currentYear}`, {
   headers: { 'X-Auth-Token': API_KEY }
 })
 .then(res => res.json())
 .then(data => {
   const matches = data.matches;
-  let html = `
-    <h2 class="text-white mt-5 mb-4">LaLiga 2024/25 Maçları</h2>
+  let upcomingMatches = "";
+  let pastMatches = "";
+
+  matches.forEach(match => {
+    const date = new Date(match.utcDate).toLocaleDateString("tr-TR");
+    const home = match.homeTeam.name;
+    const away = match.awayTeam.name;
+    const score = `${match.score.fullTime.home ?? "-"} : ${match.score.fullTime.away ?? "-"}`;
+
+    const rowHTML = `
+      <tr>
+        <td>${date}</td>
+        <td>${home}</td>
+        <td>${score}</td>
+        <td>${away}</td>
+      </tr>
+    `;
+
+    if (match.status === "SCHEDULED") {
+      upcomingMatches += rowHTML;
+    } else {
+      pastMatches += rowHTML;
+    }
+  });
+
+  const tableHTML = `
+    <h2 class="text-white mt-5 mb-4">Maçlar</h2>
     <table class="table table-dark table-hover">
       <thead>
-        <tr>
-          <th>Tarih</th><th>Ev Sahibi</th><th>Skor</th><th>Deplasman</th>
-        </tr>
-      </thead><tbody>
+        <tr><th>Tarih</th><th>Ev Sahibi</th><th>Skor</th><th>Deplasman</th></tr>
+      </thead>
+      <tbody>
+        ${upcomingMatches}
+      </tbody>
+      <tbody id="pastMatches" style="display: none;">
+        ${pastMatches}
+      </tbody>
+    </table>
+
+    <div class="d-flex gap-2">
+      <button id="showPast" class="btn btn-outline-light btn-sm">Geçmiş Maçları Göster</button>
+      <button id="hidePast" class="btn btn-outline-danger btn-sm" style="display: none;">Geçmiş Maçları Gizle</button>
+    </div>
   `;
-  matches.forEach(match => {
-    const tarih = new Date(match.utcDate).toLocaleDateString("tr-TR");
-    html += `<tr>
-      <td>${tarih}</td>
-      <td>${match.homeTeam.name}</td>
-      <td>${match.score.fullTime.home ?? '-'} : ${match.score.fullTime.away ?? '-'}</td>
-      <td>${match.awayTeam.name}</td>
-    </tr>`;
+
+  main.innerHTML += tableHTML;
+
+  // Butonlar
+  const showBtn = document.getElementById("showPast");
+  const hideBtn = document.getElementById("hidePast");
+  const pastTable = document.getElementById("pastMatches");
+
+  showBtn.addEventListener("click", () => {
+    pastTable.style.display = "table-row-group";
+    showBtn.style.display = "none";
+    hideBtn.style.display = "inline-block";
   });
-  html += '</tbody></table>';
-  document.querySelector('main').innerHTML += html;
+
+  hideBtn.addEventListener("click", () => {
+    pastTable.style.display = "none";
+    showBtn.style.display = "inline-block";
+    hideBtn.style.display = "none";
+  });
 })
 .catch(err => {
-  console.error("MAÇLAR API HATASI:", err);
-  document.querySelector('main').innerHTML += `<p class="text-danger">Maç verileri yüklenemedi.</p>`;
+  console.error("Maçlar API HATASI:", err);
+  main.innerHTML += `<p class="text-danger">Maç verileri yüklenemedi.</p>`;
 });
