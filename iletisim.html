@@ -65,7 +65,7 @@
         
     <main class="container py-5">
         <div class="container my-5">
-          <h2 class="text-white mb-4">İletişim Formu</h2>
+          <h1 class="text-center mb-4" style="color: #99ffff;">İletişim Formu</h1>
           <div id="formApp">
             <form @submit.prevent action="iletisim.php" method="POST">
               <div class="row g-3">
@@ -117,8 +117,12 @@
                 <div class="col-12 col-md-6">
                   <label class="form-label text-light">Cinsiyet</label>
                   <div>
-                    <input type="radio" value="Erkek" v-model="form.cinsiyet" name="cinsiyet"> Erkek
-                    <input type="radio" value="Kadın" class="ms-3" v-model="form.cinsiyet" name="cinsiyet"> Kadın
+                    <label class="text-light me-3">
+                      <input type="radio" value="Erkek" v-model="form.cinsiyet" name="cinsiyet"> Erkek
+                    </label>
+                    <label class="text-light">
+                      <input type="radio" value="Kadın" v-model="form.cinsiyet" name="cinsiyet"> Kadın
+                    </label>
                   </div>
                   <div class="text-danger small" v-if="hatalar.cinsiyet">Cinsiyet seçiniz.</div>
                 </div>
