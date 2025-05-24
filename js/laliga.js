@@ -1,4 +1,4 @@
-const API_KEY = '5a27cfebefa747fc9a725a9ed25b0150'; // senin keyin
+const API_KEY = '5a27cfebefa747fc9a725a9ed25b0150'; // key
 
 // 1. LaLiga Sıralama
 fetch('https://api.football-data.org/v4/competitions/PD/standings', {
@@ -31,7 +31,7 @@ fetch('https://api.football-data.org/v4/competitions/PD/standings', {
 })
 .catch(err => {
   console.error("SIRALAMA API HATASI:", err);
-  document.querySelector('main').innerHTML += <p class="text-danger">Sıralama verileri yüklenemedi.</p>;
+  document.querySelector('main').innerHTML += '<p class="text-danger">Sıralama verileri yüklenemedi.</p>';
 });
 
 // 2. LaLiga Maçları
@@ -64,5 +64,5 @@ fetch('https://api.football-data.org/v4/competitions/PD/matches?season=2024', {
 })
 .catch(err => {
   console.error("MAÇLAR API HATASI:", err);
-  document.querySelector('main').innerHTML += <p class="text-danger">Maç verileri yüklenemedi.</p>;
+  document.querySelector('main').innerHTML += '<p class="text-danger">Maç verileri yüklenemedi.</p>';
 });
